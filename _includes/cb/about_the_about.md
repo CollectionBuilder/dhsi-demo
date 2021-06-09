@@ -17,6 +17,13 @@ We hope this makes it easier for site builders to develop the collection AND add
 
 {% include feature/image.html objectid="demo_001" width="75" %}
 
+
+{% assign imagesample = site.data[site.metadata] | where_exp: 'item','item.format contains "image"' | first %}
+{% capture exampleobjectid %}{{imagesample.objectid}}{% endcapture %}
+{% include feature/image.html objectid=exampleobjectid  width="75" %}
+
+{{exampleobjectid}}
+
 #### Include a PDF
 
 - PDF -- > `{% raw %}{% include feature/pdf.html objectid="demo_002"  width="50" %}{% endraw %}`
