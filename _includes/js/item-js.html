@@ -38,7 +38,7 @@
             itemImage= '<div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item" src="https://player.vimeo.com/video/' + record.vimeo + '" allowfullscreen></iframe></div>';
             itemLink= '<a href="https://vimeo.com/' + record.vimeo + '" target="_blank" class="btn btn-dark" title="Object download">View on Vimeo</a>';
         } else if (format.includes('video')) {
-            itemImage= '<video controls class="w-100"><source src="' + objectLink + '" type="' + format + '">Your browser does not support the audio element.</audio>';
+            itemImage= '<video controls class="w-100"><source src="' + objectLink + '">Your browser does not support the audio element.</audio>';
             itemLink= '<a href="' + objectLink + '" target="_blank" class="btn btn-dark" title="Object download">Download Video File</a>';
         } else {
             /* fall back to no preview if it doesn't know the format */

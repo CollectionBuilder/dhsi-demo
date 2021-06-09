@@ -19,17 +19,20 @@
 
 <div class="text-center ">
     <figure class="figure mx-3{% if include.float %} feature-float-{{ include.float }}{% endif %}{% if include.width %} feature-w-{{ include.width }}{% endif %}">
-        {% if include.src contains 'vimeo' %}
-        {% assign vimeo_id = include.src | split: '/' | last %}
+        {% if include.src contains 'vimeo' or include.objectid contains 'vimeo' %}
+        {% assign src = include.src | default: include.objectid %}
+        {% assign vimeo_id = src | split: '/' | last %}
         <div class="embed-responsive embed-responsive-{{ include.ratio | default: '16by9' }}">
             <iframe class="embed-responsive-item" src="https://player.vimeo.com/video/{{ vimeo_id }}" allowfullscreen></iframe>
         </div>
-        {%- elsif include.src contains 'youtu' -%}
-        {% assign youtube_id = include.src | split: '/' | last %}
+        {%- elsif include.src contains 'youtu' or include.objectid contains 'youtu'-%}
+        {% assign src = include.src | default: include.objectid %}
+        {% assign youtube_id = src | split: '/' | last %}
         {% if youtube_id contains '?' %}{% assign youtube_id = youtube_id | split: '?' | last | split: '&' | first | replace: 'v=','' %}{% endif %}
         <div class="embed-responsive embed-responsive-{{ include.ratio | default: '16by9' }}">
             <iframe class="embed-responsive-item" src="https://www.youtube-nocookie.com/embed/{{ youtube_id }}?rel=0&modestbranding=1" allowfullscreen></iframe>
         </div>
+      
         {% else %}
             Your browser does not support the video tag.
         {% endif %}

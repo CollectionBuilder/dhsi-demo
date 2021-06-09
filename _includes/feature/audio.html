@@ -16,7 +16,7 @@
 
 {%- endcomment -%}
 {%- assign item = site.data[site.metadata] | where: "objectid", include.objectid | first -%}
-{%- capture src -%}{% if  item.filename contains '/' %}{{ item.filename }}{% else %}{{ '/objects/' | append: item.filename | relative_url }}{% endif %}{% endcapture %}
+{% if item%}{%- capture src -%}{% if  item.filename contains '/' %}{{ item.filename }}{% else %}{{ '/objects/' | append: item.filename | relative_url }}{% endif %}{% endcapture %}{% else %}{%- capture src -%}{{include.objectid}}{%- endcapture -%}{%endif%}
 <p class="text-center my-3">
         <audio controls class="w-100">
             <source src="{{ src }}" type="{{ item.format | default: 'audio/mpeg' }}">

@@ -18,7 +18,7 @@
 {%- endcomment -%}
 <div class="my-4 text-center">
     <figure class="figure mx-3{% if include.float %} feature-float-{{ include.float }}{% endif %}{% if include.width %} feature-w-{{ include.width }}{% endif %}">
-        <img class="figure-img img-fluid rounded lazyload" alt="{{ include.alt | escape }}" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ include.src | relative_url }}" >
+        <img class="figure-img img-fluid rounded lazyload" alt="{{ include.alt | escape }}" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ include.src | relative_url | default: include.objectid }}" >
         {% if include.caption %}<figcaption class="figure-caption">{{ include.caption }}</figcaption>{% endif %}
     </figure>
 </div>

@@ -14,6 +14,7 @@
     - "float" = will use responsive float utility to add float on desktop (will not float on mobile), choose from "left" or "right" (optional, not recommended) If you use the "float" option, you may want to "clear" the float at some point below, by adding <div class="clearfix"></div> to your content page.
     
 {%- endcomment -%}
+{% if include.objectid contains 'http'%}{% include feature/image-external.html %}{% else %}
 {%- assign figures = include.objectid | split: ";" %}
 <div class="row">
     {% for i in figures %}
@@ -29,3 +30,4 @@
     </div>
     {% endfor %}
 </div>
+{% endif %}
