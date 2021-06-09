@@ -42,6 +42,9 @@ This has **bold** or *italic* font.
 - List one
 - two 
 - three
+- dogs
+- cats
+- muffins
 
 1. dogs
 2. cats
